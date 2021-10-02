@@ -1,3 +1,7 @@
 import movies from "./movies";
+import moviesItem from "./moviesItem";
 
-export default movies;
+export {
+    movies,
+    moviesItem
+};

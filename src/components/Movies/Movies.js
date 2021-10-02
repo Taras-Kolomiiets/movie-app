@@ -1,13 +1,32 @@
-import { useEffect } from "react";
-import { connect, useDispatch } from "react-redux";
-import { getMovies } from "../../redux/reducers/movies";
-import { useQuery } from "../../lib/api/useQuery";
-const GET_MOVIES = "GET_MOVIES";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
+const urlComponent = "https://image.tmdb.org/t/p/w342";
 
 const Movies = (props) => {
-  const { data, refresh } = useQuery("Shrek");
-
-  return <p>Movies!</p>;
+  console.log(props.movies);
+  return (
+    <>
+      <ul className="gallery">
+        {props.movies.map((el) => {
+          return (
+            <li>
+              <img src={urlComponent + el.poster_path} alt="" />
+              <p>{el.title}</p>
+              <p>{el.vote_average}</p>
+              <p>{el.release_date}</p>
+              <Link
+                to={`/movie/${el.id}`}
+                style={{ height: "15px", width: "25px" }}
+              >
+                Link
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
 };
 
 const mapStateToProps = (state) => ({
