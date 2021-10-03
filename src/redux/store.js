@@ -3,10 +3,10 @@ import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { movies, moviesItem } from "./reducers";
 
-const configureStore = (reducers = {}, middlewares = []) =>
+const configureStore = () =>
   createStore(
-    combineReducers({ ...reducers, movies, moviesItem }),
-    compose(applyMiddleware(...middlewares, thunk, logger))
+    combineReducers({ movies, moviesItem }),
+    compose(applyMiddleware(thunk, logger))
   );
 
 export default configureStore;

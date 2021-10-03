@@ -1,4 +1,3 @@
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 const urlComponent = "https://image.tmdb.org/t/p/w342";
@@ -29,8 +28,4 @@ const Movies = ({ movies }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  movies: state.movies.movies,
-});
-
-export default connect(mapStateToProps, null)(Movies);
+export default Movies;

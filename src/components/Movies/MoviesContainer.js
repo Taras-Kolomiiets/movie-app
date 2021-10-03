@@ -4,7 +4,7 @@ import Search from "../Search";
 import {getMoviesSelector} from "./selector";
 
 const MovieContainer = () => {
-    const movies = useSelector(getMoviesSelector)
+    const movies = useSelector(getMoviesSelector);
     return (
         <>
             <Search/>
