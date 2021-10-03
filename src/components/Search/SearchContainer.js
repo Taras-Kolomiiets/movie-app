@@ -1,22 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { getMoviesActions } from "../Movies/actions";
-import { getQuery } from "../../lib/api/getQuery";
+import React, {useCallback, useEffect, useState} from "react";
+import {useDispatch} from "react-redux";
+import {getMoviesActions} from "../Movies/actions";
+import {getQuery} from "../../lib/api/getQuery";
 import Search from "./Search";
 
-const SearchContainer = ({ getMoviesActions }) => {
-  const [query, setQuery] = useState("");
+const SearchContainer = () => {
+    const [query, setQuery] = useState("");
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    getQuery("", "", getMoviesActions);
-  }, [getMoviesActions]);
+    const handlerGetMoviesItemActions = useCallback((data) => {
+        dispatch(getMoviesActions(data))
+    }, [dispatch]);
 
-  const search = (event) => {
-    event.preventDefault();
-    getQuery(query, "", getMoviesActions);
-  };
+    useEffect(() => {
+        getQuery("", handlerGetMoviesItemActions);
+    }, [dispatch, handlerGetMoviesItemActions]);
 
-  return <Search search={search} setQuery={setQuery} />;
+    const search = (event) => {
+        event.preventDefault();
+        getQuery(query, handlerGetMoviesItemActions);
+    };
+
+    return <Search search={search} setQuery={setQuery} query={query}/>;
 };
 
-export default connect(null, { getMoviesActions })(SearchContainer);
+export default SearchContainer;

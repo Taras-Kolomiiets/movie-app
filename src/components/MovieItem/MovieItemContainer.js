@@ -19,7 +19,7 @@ const MovieItemContainer = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        getQuery('', id, handlerGetMoviesItemActions)
+        getQuery('', handlerGetMoviesItemActions)
     }, [id, handlerGetMoviesItemActions])
 
     return (

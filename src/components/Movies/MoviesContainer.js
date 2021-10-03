@@ -1,18 +1,16 @@
 import Movies from "./Movies";
-import { connect } from "react-redux";
+import {useSelector} from "react-redux";
 import Search from "../Search";
+import {getMoviesSelector} from "./selector";
 
-const mapStateToProps = (state) => ({
-  movies: state.movies.movies,
-});
-
-const MovieContainer = ({ movies }) => {
-  return (
-    <>
-      <Search />
-      <Movies movies={movies} />
-    </>
-  );
+const MovieContainer = () => {
+    const movies = useSelector(getMoviesSelector)
+    return (
+        <>
+            <Search/>
+            <Movies movies={movies}/>
+        </>
+    );
 };
 
-export default connect(mapStateToProps, null)(MovieContainer);
+export default MovieContainer;

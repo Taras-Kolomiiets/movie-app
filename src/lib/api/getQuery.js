@@ -2,12 +2,11 @@ const API_KEY = "9226d2cbb7ed48fe3f3e70d3c7574602";
 const BASE_URL = "https://api.themoviedb.org/";
 const URL_RATED = `${BASE_URL}3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`;
 
-export const getQuery = (query, movieId, actions) => {
+export const getQuery = (query, actions) => {
+  console.log(actions);
   let url = null;
   if (query) {
     url = `${BASE_URL}3/search/movie?api_key=${API_KEY}&query=${query}`;
-  } else if (movieId) {
-    url = `${BASE_URL}3/find/${movieId}?api_key=${API_KEY}&language=en-US&external_source=imdb_id`;
   } else {
     url = URL_RATED;
   }
