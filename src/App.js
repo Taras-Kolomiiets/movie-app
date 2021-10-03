@@ -13,7 +13,7 @@ const App = () => {
           <nav>
             <ul>
               <li>
-                <Link className="link btn btn-primary mb-2" to="/">
+                <Link className="link btn btn-primary mb-2" to="/movie-app">
                   Home
                 </Link>
               </li>
@@ -22,7 +22,7 @@ const App = () => {
         </header>
         <div className="app">
           <Switch>
-            <Route exact component={Movies} path={"/"} />
+            <Route exact component={Movies} path={"/movie-app"} />
             <Route component={MovieItem} path={`/movie/:id`} />
           </Switch>
         </div>
