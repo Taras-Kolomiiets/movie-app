@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const urlComponent = "https://image.tmdb.org/t/p/w342";
 
-const Movies = (props) => {
+const Movies = ({ movies }) => {
   return (
     <>
       <ul className="gallery">
-        {props.movies.map((el) => {
+        {movies.map((el) => {
           return (
             <li className="movie" key={el.id}>
               <Link to={`/movie/${el.id}`}>

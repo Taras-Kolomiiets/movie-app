@@ -7,7 +7,6 @@ const initialState = {
 const moviesItem = (state = initialState, action) => {
   switch (action.type) {
     case GET_MOVIES_ITEM:
-      console.log('reducer', action);
       return { ...state, moviesItem: action.payload };
     default:
       return state;

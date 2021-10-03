@@ -3,10 +3,9 @@ import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { movies, moviesItem } from "./reducers";
 
-const configureStore = (reducers = {}, preloadedState = {}, middlewares = []) =>
+const configureStore = (reducers = {}, middlewares = []) =>
   createStore(
     combineReducers({ ...reducers, movies, moviesItem }),
-    preloadedState,
     compose(applyMiddleware(...middlewares, thunk, logger))
   );
 

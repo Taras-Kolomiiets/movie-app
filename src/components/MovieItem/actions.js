@@ -1,10 +1,8 @@
-export const GET_MOVIES_ITEM = 'GET_MOVIES_ITEM';
+export const GET_MOVIES_ITEM = "GET_MOVIES_ITEM";
 
 export const getMoviesItemActions = (data) => {
-    console.log('getMoviesItemActions', data);
-    return {
-        type: GET_MOVIES_ITEM,
-        payload: data,
-    }
-}
-
+  return {
+    type: GET_MOVIES_ITEM,
+    payload: data,
+  };
+};
