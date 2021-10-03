@@ -13,7 +13,7 @@ const Search = ({ search, setQuery }) => {
         onClick={(event) => search(event)}
         className="btn btn-primary mb-2"
       >
-        Submit
+        Search
       </button>
     </form>
   );

@@ -10,16 +10,17 @@ const Movies = (props) => {
       <ul className="gallery">
         {props.movies.map((el) => {
           return (
-            <li>
-              <img src={urlComponent + el.poster_path} alt="" />
-              <p>{el.title}</p>
-              <p>{el.vote_average}</p>
-              <p>{el.release_date}</p>
-              <Link
-                to={`/movie/${el.id}`}
-                style={{ height: "15px", width: "25px" }}
-              >
-                Link
+            <li className="movie">
+              <Link to={`/movie/${el.id}`}>
+                <img src={urlComponent + el.poster_path} alt="" />
+                <div className="movie-info">
+                  <h3>{el.title}</h3>
+                  <span>{el.vote_average}</span>
+                </div>
+                <div className="overview">
+                  <h3>Overview:</h3>
+                  {el.overview}
+                </div>
               </Link>
             </li>
           );

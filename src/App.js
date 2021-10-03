@@ -14,10 +14,14 @@ const App = () => {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link className="link btn btn-primary mb-2" to="/">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Search />
               </li>
             </ul>
-            <Search />
           </nav>
         </header>
         <div className="app">
