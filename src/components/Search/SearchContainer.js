@@ -4,16 +4,16 @@ import { getMoviesActions } from "../Movies/actions";
 import { getQuery } from "../../lib/api/getQuery";
 import Search from "./Search";
 
-const SearchContainer = (props) => {
+const SearchContainer = ({ getMoviesActions }) => {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    getQuery("", "", props.getMoviesActions);
-  }, [props.getMoviesActions]);
+    getQuery("", "", getMoviesActions);
+  }, [getMoviesActions]);
 
   const search = (event) => {
     event.preventDefault();
-    getQuery(query, "", props.getMoviesActions);
+    getQuery(query, "", getMoviesActions);
   };
 
   return <Search search={search} setQuery={setQuery} />;

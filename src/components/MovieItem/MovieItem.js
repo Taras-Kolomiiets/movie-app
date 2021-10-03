@@ -1,5 +1,3 @@
-import "./MovieItem.css";
-
 const urlComponent = "https://image.tmdb.org/t/p/w342";
 
 const MovieItem = ({ moviesItem }) => {
@@ -13,10 +11,21 @@ const MovieItem = ({ moviesItem }) => {
               alt=""
               className="movie-item-img"
             />
-            <h3 className="movie-item-title">{item.title}</h3>
-            <p className="movie-item-stats">{item.vote_average}</p>
-            <p className="movie-item-stats">{item.overview}</p>
-            <p className="movie-item-stats">{item.release_date}</p>
+            <div className="movie-item-wrapper">
+              <h3 className="movie-item-title">{item.title}</h3>
+              <p className="movie-item-stats">
+                <span className="movie-item-description">Rating: </span>
+                {item.vote_average}
+              </p>
+              <p className="movie-item-stats">
+                <span className="movie-item-description"> Overview: </span>
+                {item.overview}
+              </p>
+              <p className="movie-item-stats">
+                <span className="movie-item-description">Release date: </span>
+                {item.release_date}
+              </p>
+            </div>
           </div>
         );
       })}
